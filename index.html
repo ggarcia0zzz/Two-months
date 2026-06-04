@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 Meses ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:linear-gradient(180deg,#050816,#0c1028,#141b3a);
+    color:white;
+}
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.2;}
+    50%{opacity:1;}
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+}
+
+h1{
+    font-size:3rem;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.heart-btn{
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    background:#ff4f81;
+    color:white;
+    font-size:1.2rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.heart-btn:hover{
+    transform:scale(1.1);
+}
+
+.hidden{
+    display:none;
+}
+
+.letter{
+    background:white;
+    color:#333;
+    max-width:700px;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    text-align:center;
+    cursor:pointer;
+    animation:appear 1s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.letter h2{
+    color:#ff4f81;
+    margin-bottom:20px;
+}
+
+.gallery{
+    width:100%;
+    max-width:1200px;
+    text-align:center;
+}
+
+.gallery h2{
+    margin-bottom:30px;
+    font-size:2.5rem;
+}
+
+.photos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.photos img{
+    width:100%;
+    border-radius:20px;
+    object-fit:cover;
+    transition:.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+.photos img:hover{
+    transform:scale(1.05);
+}
+
+.message{
+    margin-top:30px;
+    font-size:1.2rem;
+}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+
+    <div id="inicio">
+        <h1>✨ Feliz 2 Meses Mi Amor ✨</h1>
+        <button class="heart-btn" onclick="abrirCarta()">
+            ❤️ Abrir Carta ❤️
+        </button>
+    </div>
+
+    <div id="carta" class="letter hidden" onclick="mostrarFotos()">
+        <h2>Para Ti ❤️</h2>
+
+        <p>
+            Hoy celebramos nuestros primeros 2 meses juntas.
+            Y me has enseñado a que el amor siempre es paciente,
+            que no importa que suceda siempre preferiré este lugar antes que cualquier otro.
+        </p>
+
+        <br>
+
+        <p>
+            Gracias por siempre hacerme senti mejor, por cada palabra que aunque no creas alegra
+            cada dia. Eres la mejor mi flaca hermosa
+        </p>
+
+        <br>
+
+        <p>
+            Te amo mucho❤️
+        </p>
+
+        <br>
+
+        <strong>
+            (Haz clic)
+        </strong>
+    </div>
+
+    <div id="galeria" class="gallery hidden">
+
+        <h2> Nuestros Recuerdos </h2>
+
+        <div class="photos">
+
+            <!-- CAMBIA LOS NOMBRES POR TUS FOTOS -->
+
+            <img src="WhatsApp Image 2026-06-03 at 11.46.22 PM.jpeg" alt="">
+            <img src="WhatsApp Image 2026-06-03 at 11.46.21 PM.jpeg" alt="">
+            <img src="WhatsApp Image 2026-06-03 at 11.46.21 PM(2).jpeg" alt="">
+            <img src="WhatsApp Image 2026-06-03 at 11.46.21 PM(1).jpeg" alt="">
+
+        </div>
+
+        <p class="message">
+            Gracias por cada momento vivido.
+            Y por todos los que aún nos faltan.
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+for(let i=0;i<150;i++){
+    const star=document.createElement("div");
+    star.classList.add("star");
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+    star.style.animationDelay=Math.random()*3+"s";
+
+    document.getElementById("stars").appendChild(star);
+}
+
+function abrirCarta(){
+    document.getElementById("inicio").classList.add("hidden");
+    document.getElementById("carta").classList.remove("hidden");
+}
+
+function mostrarFotos(){
+    document.getElementById("carta").classList.add("hidden");
+    document.getElementById("galeria").classList.remove("hidden");
+}
+
+</script>
+
+</body>
+</html>
